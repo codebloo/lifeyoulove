@@ -24,8 +24,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-<h2>Latest Articles</h2>					
-<?php wp_nav_menu( array( 'theme_location' => 'blog-menu','link_before' => '<span>', 'link_after' => '</span>','menu_class' => 'menu') ); ?>
+					<h2>Latest Articles</h2>					
+					<?php wp_nav_menu( array( 'theme_location' => 'blog-menu','link_before' => '<span>', 'link_after' => '</span>','menu_class' => 'menu') ); ?>
 				</div>
 			</div>
 		</div>
@@ -34,23 +34,22 @@
 		<div class="container">
 			<div class="row">	
 				    
-				       <div class="col-12"><h2 class="cat_title"><?php 
-   $tax = $wp_query->get_queried_object();
-   echo ''. $tax->name . '';?></h2></div>
+				       <div class="col-12">
+						<h2 class="cat_title"><?php $tax = $wp_query->get_queried_object(); echo ''. $tax->name . '';?></h2></div>
 
      
-				      	<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
-		 				<div class="col-6">
+				      	<?php if(have_posts()) : $i = 0; while(have_posts()) : the_post(); ?>
+		 				<div class="col-6 item-<?php echo (($i++) % 2) + 1 ?>">
 		 					<article class="post" id="post-<?php the_ID(); ?>">
 		 						<a href="<?php the_permalink();?>" class="post_image">
-		 							<?php echo get_the_post_thumbnail( $post_id, 'blogpost', array( 'class' => 'scale-with-grid' ) );?>
+									<img src="<?php the_post_thumbnail_url('blogpost'); ?>" class="scale-with-grid"/>
 		 						</a>
 		 						<h4><a href="<?php the_permalink();?>"><?php the_title();?></a></h4>
 		 					</article>
 		 				</div>
 			                       
 
-				        <?php endwhile; endif; ?>
+				        <?php endwhile; $i++; endif; ?>
 			</div>
 		</div>
 	</section>

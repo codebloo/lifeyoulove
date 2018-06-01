@@ -27,8 +27,8 @@ add_post_type_support( 'page', 'excerpt' );
 function js_scripts_load_cdn()
 {
 	// Register the script like this for a theme:
-	wp_register_script( 'slick', '//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js', array( 'jquery' ) );
 	wp_register_script( 'custom', get_template_directory_uri() . '/js/custom.js', array( 'jquery' ) );
+	wp_register_script( 'slick', get_template_directory_uri() . '/js/slick.js', array( 'jquery' ) );
 
 	// For either a plugin or a theme, you can then enqueue the script:
 	wp_enqueue_script( 'slick' );

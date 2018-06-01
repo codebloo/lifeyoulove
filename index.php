@@ -1,20 +1,30 @@
 <?php get_header(); ?>
 
 <main role="main">
+ <div class="container">
+			<div class="row">
+				<div class="col-12">
+<?php $the_query = new WP_Query( array('posts_per_page' => 1,  'tag' => 'featured' ) );  
+if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+	
 <section class="featured_post">
 <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'hero' );?>
 	<img src="<?php  echo $image[0]; ?>" data-id="<?php echo $post->ID; ?>" class="scale-with-grid">
 
-	<div class="featured_content" style="position:absolute;width:100%;">
-		<div class="row">
-			<article class="col-12">
+	<div class="featured_content">
+		<article>
+			<div class="article_feature">
 				<h2><?php the_title();?></h2>
-				<p><?php the_excerpt();?></p>
 				<a href="<?php the_permalink();?>" class="button">Read More</a>
-			</article>
-		</div>
+			</div>
+		</article>
 	</div>
 </section>
+<?php endwhile;endif; ?>
+</div>
+</div>
+</div>
+
 	<section class="cat_list">
 		<div class="container">
 			<div class="row">
@@ -56,11 +66,12 @@
 				                    )
 				                )
 
+
 				            );
 				        $posts = new WP_Query($args);
 
 				        if( $posts->have_posts() ): ?> 
-    
+    <section class="cat_<?php echo $term->name; ?> clearfix">
 				       <div class="col-12"><h2 class="cat_title"><a href="<?php bloginfo('url');?>/category/<?php echo $term->name; ?>"><?php echo $term->name; ?></a></h2></div>
      
 				        <?php while( $posts->have_posts() ) : $posts->the_post(); ?>
@@ -81,6 +92,7 @@
 							<a href="<?php bloginfo('url');?>/category/<?php echo $term->name; ?>" class="button">View all posts in <?php echo $term->name; ?></a>
 							<hr />
 						</div>
+</section>
 					
 					<?php endif; endforeach; endforeach; ?>
 			</div>

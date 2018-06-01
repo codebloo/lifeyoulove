@@ -4,10 +4,21 @@ get_header(); ?>
 
 <main role="main">
 	<section id="hero">
-			<?php if(get_field('hero_button_text')):?>
-				<a href="<?php the_field('hero_button_link');?>" class="button gold"><?php the_field('hero_button_text');?></a>
-			<?php endif;?>	
-			<?php $images = get_field('hero_slide'); $size = 'hero'; if( $images ): ?>
+			<div class="hero_content">
+			<div class="hero_fields">
+				<?php if(get_field('hero_headline')):?>
+					<h2><?php the_field('hero_headline');?></h2>		
+				<?php endif;?>			
+				<?php if(get_field('hero_subtext')):?>
+					<p><?php the_field('hero_subtext');?></p>		
+				<?php endif;?>			
+				<?php if(get_field('hero_button_text')):?>
+					<div class="button_wrapper">	
+						<a href="<?php the_field('hero_button_link');?>" class="button gold"><?php the_field('hero_button_text');?></a>		
+					</div>
+				<?php endif;?>	
+			</div>
+		</div>			<?php $images = get_field('hero_slide'); $size = 'hero'; if( $images ): ?>
 			    <ul>
 			        <?php foreach( $images as $image ): ?>
 			            <li>
@@ -50,7 +61,7 @@ get_header(); ?>
 												the_post_thumbnail('blogpost', array('class' => 'scale-with-grid'));
 											}?>
 											<div class="coach_content">
-												<h3>Get good at <?php the_title();?></h3>
+												<h3><?php the_field('coach_topic');?></h3>
 												<h4><em>with</em> <?php the_excerpt();?></h4>
 											</div>
 											</a>
@@ -67,22 +78,21 @@ get_header(); ?>
 		<div class="row">
 			<div class="col-12">
 				<div class="featured_routine single_routine_box">					
-<h3>Life of <em><?php the_field('featured_routine');?></em></h3>
+					<h3>Life of <em><?php the_field('featured_routine');?></em></h3>
 					<p><?php the_field('featured_routine_desc');?></p>
 					
 					<?php if(get_field('featured_routine_image')):?>
-<?php $image = wp_get_attachment_image_src(get_field('featured_routine_image'), 'full'); ?>
+						<?php $image = wp_get_attachment_image_src(get_field('featured_routine_image'), 'full'); ?>
 						<img src="<?php echo $image[0]; ?>" alt="<?php the_field('featured_routine_desc');?>" class="scale-with-grid" />
 					<?php else:?>
 						<img src="http://placehold.it/1334x515.jpg" class="scale-with-grid" />
 					<?php endif;?>
-
-			</div>
+				</div>
 			</div>
 		</div>
 		<div class="row">
-			<?php if( have_rows('routines_on_page') ): while( have_rows('routines_on_page') ): the_row(); ?>
-		<div class="col-6">
+			<?php if( have_rows('routines_on_page') ): $i = 0; while( have_rows('routines_on_page') ): the_row(); ?>
+		<div class="col-6 item-<?php echo (($i++) % 2) + 1 ?>">
 			<div class="single_routine_box">
 				<h3>Life of <em><?php the_sub_field('routine_name');?></em></h3>
 				<p><?php the_sub_field('routine_description');?></p>
@@ -94,7 +104,7 @@ get_header(); ?>
 					<?php endif;?>
 			</div>		
 		</div>	
-		<?php endwhile; endif;?>
+		<?php endwhile; $i++; endif;?>
 		</div>
 	</div>
 </section>

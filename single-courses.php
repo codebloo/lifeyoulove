@@ -1,22 +1,11 @@
 <?php get_header(); ?>
 <main role="main">
 	<section id="hero">
-		<?php $images = get_field('hero_slide'); $size = 'full'; if( $images ): ?>
-		    <ul>
-		        <?php foreach( $images as $image ): ?>
-		            <li>
-		            	<?php echo wp_get_attachment_image( $image['ID'], $size ); ?>
-		            </li>
-		        <?php endforeach; ?>
-		    </ul>
-		<?php else: ?>	
-		    <ul>
-		     	<li>
-					<?php $blog_header = wp_get_attachment_image_src(get_field('blog_header' , 'option'), 'full'); ?>
-					<img src="<?php echo $blog_header[0]; ?>)" class="scale-with-grid" />
-		        </li>
-		    </ul>
-		<?php endif; ?>
+		<ul>
+			<li>		
+		      <img src="<?php the_post_thumbnail_url('hero');?>" class="scale-with-grid" />
+		     </li>
+		 </ul>	
 	</section>
 	
 	<section id="blogSingle" class="container">

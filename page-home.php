@@ -6,7 +6,21 @@ get_header(); ?>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		
 		<section id="hero">
-			<a href="<?php the_field('hero_button_link');?>" class="button gold"><?php the_field('hero_button_text');?></a>
+		<div class="hero_content">
+			<div class="hero_fields">
+				<?php if(get_field('hero_headline')):?>
+					<h2><?php the_field('hero_headline');?></h2>		
+				<?php endif;?>			
+				<?php if(get_field('hero_subtext')):?>
+					<p><?php the_field('hero_subtext');?></p>		
+				<?php endif;?>			
+				<?php if(get_field('hero_button_text')):?>
+					<div class="button_wrapper">	
+						<a href="<?php the_field('hero_button_link');?>" class="button gold"><?php the_field('hero_button_text');?></a>		
+					</div>
+				<?php endif;?>	
+			</div>
+		</div>
 			<?php $images = get_field('hero_slide'); $size = 'full'; if( $images ): ?>
 			    <ul>
 			        <?php foreach( $images as $image ): ?>
@@ -28,8 +42,7 @@ get_header(); ?>
 				</div>
 			</div>
 		</section>	
-		
-				<section id="coaches">
+			<section id="coaches">
 					<div class="container">
 						<div class="row">
 							<div class="col-12">
@@ -59,7 +72,7 @@ get_header(); ?>
 												the_post_thumbnail('blogpost', array('class' => 'scale-with-grid'));
 											}?>
 											<div class="coach_content">
-												<h3>Get good at <?php the_title();?></h3>
+												<h3><?php the_field('coach_topic');?></h3>
 												<h4><em>with</em> <?php the_excerpt();?></h4>
 											</div>
 											</a>
@@ -69,8 +82,7 @@ get_header(); ?>
 								</ul>
 							 <?php $i++;?>
 						<?php endif; ?>
-				</section>
-		
+				</section>		
 		<section id="mindset">
 			<div class="container">
 				<div class="row">
@@ -96,10 +108,12 @@ get_header(); ?>
 			<div class="container">
 				<div class="row">
 					<div class="col-12">	
-						<h2>Life Fundamentals,<br/>Designed <em>For You</em></h2>
+						<h2>Life Fundamentals, Designed <em>For You</em>.</h2>
 						<p>We help you find what you’re looking for in life.</p>
 <h1>
-  <a href="" class="typewrite" data-period="2000" data-type='[ "Purpose", "Self Love", "Feminine Power", "Money" ]'>
+  <a href="" class="typewrite" data-period="2000" data-type='[ "Purpose", "Self Love", "Empowerment", "Connection", "Success" ]'>
+
+
     <span class="wrap"></span>
   </a>
 </h1>
