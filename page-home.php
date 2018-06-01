@@ -117,7 +117,7 @@ get_header(); ?>
 						<div class="download_item_content">
 							<h2><?php the_sub_field('download_title');?></h2>
 							<p><?php the_sub_field('download_description');?></p>
-							<a href="#" class="button">Download The App</a>
+							<a href="<?php the_field('app_download_link' , 'option');?>" class="button">Download The App</a>
 						</div>
 						
 					</div>

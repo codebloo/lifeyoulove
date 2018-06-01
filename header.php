@@ -21,7 +21,7 @@
     <!-- dns prefetch -->
 		<link href="//www.google-analytics.com" rel="dns-prefetch">	
 	
-	<!-- Mobile Specific Metas
+	<!-- Mobile Specific Metas	
   ================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
