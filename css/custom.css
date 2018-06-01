@@ -29,14 +29,13 @@ nav#navigation, header#header{
     left: 0;
  // Animation
    -webkit-transition: all 0.4s ease;
-position:fixed;
+	position:fixed;
    transition: all 0.4s ease;
-width:100%;
-}
+	width:100%;}
 
 header#header.shrink{
     position: fixed;
-    z-index: 9;}
+    z-index: 99;}
 
 
 /*header.shrink{height: 35px;}
@@ -102,6 +101,8 @@ display:block;
 width:auto;}
 
 .my-membership-tabs{display:none;}
+
+
 	
 
 /* #Shopping Tools
@@ -152,10 +153,38 @@ main section{clear:both;}
     background: transparent;
     border-color: #fff;
     color: #fff;
-	left: 8%;
-    position: absolute;
-	top:40%;
-    z-index: 12;}
+	display:block;
+	float:left;}
+
+.hero_content{
+	bottom:0;
+	height:100%;
+	left:0;
+	position:absolute;
+	width:100%;
+	z-index:11;}
+.hero_fields{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #fff;
+	display:flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	padding:20px;}
+
+.hero_fields h2 {
+    color: #fff;
+    font-size: 3.4rem;
+    width: 50%;
+    line-height: 1em;}
+   
+ .hero_fields p {
+	 color: #fff;
+    font-size: 2rem;
+    width: 50%;
+    line-height: 1em; } 
 
 
 /** Home - Design the life  **/
@@ -332,6 +361,9 @@ margin-bottom: 0;
 	margin-bottom:80px;
 	text-align:center;}
 .single_routine_box p{margin-bottom:40px;}
+
+.routines_boxes .item-1,
+.item-1{clear:both;}
 
 /* #Videos
 ================================================== */
@@ -557,7 +589,7 @@ button.button_single_access:visited{
 	text-align:center;
 	width:150px;}	
 
-	.page-template-page-ourstory #hero a.button{ bottom: 2%; top:auto;}		
+		
 						
 /* SCIENCE  */
 	.science_intro {padding:60px 0;}
@@ -588,7 +620,7 @@ button.button_single_access:visited{
 		clear:both;
 		display:block;}		
 		
-	.page-template-page-science #hero a.button{ bottom: 2%; top:auto;}	
+	
 		
 /* ROUTINE */
 	.page-template-page-routines section#coaches{padding-top:0;}				
@@ -597,6 +629,8 @@ button.button_single_access:visited{
 	.blog_entries .post_image{
 		display:block;
 		margin-bottom:10px;}
+.cat_Magazine,
+.blog_entries .cat_featured{display:none;}
 	
 	.page-template-page-science #hero ul,
 	.page-template-page-science #hero ul li,
@@ -630,16 +664,36 @@ padding-top:20px;
 			text-transform:uppercase;}	
 	.blog h2.cat_title{
 	    font-family: Source Sans Pro;
-	    font-weight: 600;
-		text-align:center;
-		text-transform:uppercase;}
+		text-align:center;}
 	.post_meta{margin-bottom:20px;}
 	.single_blog{padding:0 0 60px 0;}
+.single_blog ol,
+.single_blog ul{padding-left: 20px;}
 	.single .current-post-parent a{text-decoration:underline;}
 	.lovers:hover{text-decoration:none;}
 
 .category main{padding-bottom:40px;}
-	
+
+.featured_post{    position: relative;}
+.featured_post .featured_content{
+bottom:0;	
+height: 100%;
+	left:0;
+	position:absolute;
+	width:100%;
+    z-index: 2;}
+.featured_post .featured_content article{
+	align-items:flex-end;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;	
+display:flex;
+	height:100%;
+	padding: 20px;
+	position:relative;	
+	text-align: left;}
+.featured_post .featured_content article h2{color:#fff;}
+.article_feature{}
 
 	/* #WooCommerce 
 	================================================== */	
@@ -685,7 +739,12 @@ nav.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link
 		
 			#hero a.button{bottom:23%;}
 			.page-template-page-ourstory #hero a.button { bottom: 18%;}
-			.page-template-page-science #hero a.button{ bottom: 18%;}	
+			.page-template-page-science #hero a.button{ bottom: 18%;}
+
+	.hero_fields h2,
+	.hero_fields p{width:70%;}
+
+
 	}
 
 	/* All Mobile Sizes (devices and browser) */
@@ -718,7 +777,20 @@ nav.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link
 			float:none;
 		    padding: 20px;
 			width:100%;}	
-	.photo_row{padding:20px 0 13rem 0}		
+	.photo_row{padding:20px 0 13rem 0}
+.hero_fields h2,
+.hero_fields p{width:70%;}
+
+
+.hero_fields h2{
+	font-size:20px;}
+.hero_fields p{
+	font-size:16px;
+	    margin-bottom: 10px;}
+#hero a.button{
+	    margin-bottom: 5px;
+	padding:10px 20px;}
+		
 	}
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -767,6 +839,26 @@ nav.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link
 			
 .photo_row{padding:20px 0 13rem 0}	
 .story_intro > .container > .row{display:block;}	
+
+section#fundamentals span.large,
+section#fundamentals h1 a{
+font-size: 50px;
+    font-family: source sans pro;
+    line-height: 1.5em;}	
+
+
+.hero_fields h2,
+.hero_fields p{width:70%;}
+
+
+.hero_fields h2{
+	font-size:20px;}
+.hero_fields p{
+	font-size:16px;
+	    margin-bottom: 10px;}
+#hero a.button{
+	    margin-bottom: 5px;
+	padding:10px 20px;}
 
 }	
 
